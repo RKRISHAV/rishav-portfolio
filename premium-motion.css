@@ -122,3 +122,27 @@ body.is-loading .premium-loader{display:flex}
 
 /* Readability fallback if all JavaScript/CDN resources fail. */
 .reveal:not(.in-view){opacity:1;transform:none}
+
+/* HERO OVERLAP FIX — keep the red nameplate in normal document flow.
+   The previous absolute .hero::after overlapped the metadata rail. */
+.hero::after{content:none!important;display:none!important}
+.hero-copy::before{
+  content:'RISHAV.';
+  display:table;
+  position:relative;
+  z-index:1;
+  width:max-content;
+  max-width:100%;
+  background:#e73540;
+  color:#080809;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(32px,4.8vw,73px);
+  line-height:1;
+  letter-spacing:-.07em;
+  font-weight:800;
+  padding:.06em .15em .1em;
+  margin:0 0 26px;
+}
+@media(max-width:760px){
+ .hero-copy::before{font-size:clamp(36px,10vw,64px);margin-bottom:20px}
+}
