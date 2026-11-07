@@ -83,8 +83,10 @@ body.is-loading .premium-loader{display:flex}
 .skills-marquee:hover .skills-marquee__track{animation-play-state:paused}
 /* Scroll-linked timeline highlights */
 .journey-section .timeline{position:relative;--timeline-progress:0}
-.journey-section .timeline::after{content:"";position:absolute;top:7px;bottom:25px;left:calc(20% + 10px);width:2px;background:#f03b44;transform:scaleY(var(--timeline-progress));transform-origin:top;pointer-events:none;z-index:1}
+.journey-section .timeline::after{content:"";position:absolute;top:7px;bottom:25px;left:210px;width:2px;background:#f03b44;transform:scaleY(var(--timeline-progress));transform-origin:top;pointer-events:none;z-index:1}
 .timeline-item{position:relative}
+/* Hide the original static connector so only the aligned animated connector remains. */
+.journey-section .timeline-item:not(:last-child)::before{content:none}
 .timeline-mark{position:relative;z-index:2}
 /* Warm red ambient layer; opacity is GPU-cheap and unobtrusive. */
 .motion-glow{position:fixed;inset:auto auto 0 0;width:32vw;height:32vw;max-width:540px;max-height:540px;transform:translate3d(-50%,-50%,0);border-radius:50%;pointer-events:none;z-index:0;opacity:.18;background:radial-gradient(circle,#a3212e 0%,transparent 69%);filter:blur(75px)}
